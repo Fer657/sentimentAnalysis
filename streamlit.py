@@ -18,9 +18,9 @@ background_html = f"""
 """
 
 def knn_model(text):
-    with open(r"E:\pds\frontend\knn_model.pkl", "rb") as file:
+    with open(r"knn_model.pkl", "rb") as file:
         knn = pickle.load(file)
-    with open(r"E:\pds\frontend\tfidf.pkl", "rb") as file:
+    with open(r"tfidf.pkl", "rb") as file:
         tfidf = pickle.load(file)
     tf = tfidf.transform([text])
     sentiment = knn.predict(tf)
@@ -29,9 +29,9 @@ def knn_model(text):
 
 
 def nb_model(text):
-    with open(r"E:\pds\naives_model.pkl", "rb") as file:
+    with open(r"naives_model.pkl", "rb") as file:
         nb = pickle.load(file)
-    with open(r"E:\pds\frontend\tfidf.pkl", "rb") as file:
+    with open(r"tfidf.pkl", "rb") as file:
         tfidf = pickle.load(file)
     tf = tfidf.transform([text])
     sentiment = nb.predict(tf)
